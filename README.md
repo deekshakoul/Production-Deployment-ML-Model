@@ -52,19 +52,33 @@ So far, we have completed our local deployment with Flask. Now will connect/map 
 ``` gunicorn --bind :5000 connector:app ```  <br/>
 This will run gunicorn server by providing connector file and application module name. Application still runs on same url but now the client request gets handled by the app server - Gunicorn.
 
-#### Setting up our web server - nginx ####
-To install nginx, follow the steps mentioned in  [Installing nginx on Ubuntu.](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04)
-You can install it outside environment as well.
 <br/>
 Before running nginx, we need to setup gunincorn such that it can be started by systemd. This is requirement of nginx. 
-[ ] Edit service file - sudo vi /etc/systemd/system/myapp.service
+- [ ]  Edit service file - sudo vi /etc/systemd/system/myapp.service
   * Working directory - the root folder path
   * Environment - conda env path, can be found via command `conda env list`
   * ExecStart - \<path of gunciron in your env\>  --workers 3  --bind unix:myapp.sock -m 007 connector:app
-      * Notice how this gunicorn cmd is different from earlier. Now, we bind it to a unix socket i.e myapp.sock
-[ ] To start the gunicorn service, we run following commands - 
+      *  Notice how this gunicorn cmd is different from earlier. Now, we bind it to a unix socket i.e myapp.sock
+- [ ]  To start the gunicorn service, we run following commands - 
   ```
           sudo systemctl start myapp
           sudo systemctl enable myapp
           sudo systemctl status myapp
   ```
+  
+#### Setting up our web server - nginx ####
+
+- [ ] To install nginx, follow the steps mentioned in [Installing nginx on Ubuntu.](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04)
+You can install it outside environment as well.
+- [ ] sudo usermod ubuntu -g www-data
+   - [ ] the user here is ubuntu and group is www-data. Change accordingly.
+- [ ] Create nginx configuration file - `sudo vi /etc/nginx/sites-available/myapp`
+- [ ] Create a symlink between /etc/nginx/sites-available and /etc/nginx/sites-enabled <br/>
+   ```sudo ln -s /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled```
+  To check if the linkage is successful, run `ls-ln`. If there is already symlink and you need to ovewrite then instead of passing `-s` , pass `-sf` as argument.
+- [ ] `sudo nginx -t` Checks any syntax errors in configuration file: nginx.conf
+- [ ] Start teh application -
+        ```sudo systemctl start nginx```
+      Application will be running at http://localhost:5000
+
+    
