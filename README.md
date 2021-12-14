@@ -22,8 +22,8 @@ Now in any environment, all we need to do is -
  We need to deploy a simple UI which intakes a word from user and then provides list of words similar to that word, based on our trained word2vec model.
  ![This is what we want](others/UI.png)
 
-### Getting Started ###
-
+## Getting Started ##
+<hr />
 ### Creating conda environment
 <details>
   
