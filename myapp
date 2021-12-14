@@ -1,3 +1,5 @@
+#copy the below content to by cmd - sudo vi /etc/nginx/sites-available/myapp
+
 server {
  listen 80;
  server_name <pass the server ip here> ;  
