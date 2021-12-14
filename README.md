@@ -76,7 +76,8 @@ Before running nginx, we need to setup gunincorn such that it can be started by 
           sudo systemctl enable myapp
           sudo systemctl status myapp
   ```
- - [ ]  This creates **myapp.sock** in your root folder. **NOTE:** change the permission of this file to 777 so that its accessible to nginx. You might need to change the folder permission access as well, because we see in nginx setuo that its start from root folder("/") and then moves to our unix socket **"myapp.sock"**, we need to make sure nginx has permission to do so.
+ - [ ]  The above cmds creates **myapp.sock** in your my_code folder. <br/>
+  **NOTE:** change the permission of this file to 777 so that its accessible to nginx. You might need to change the folder permission access as well, because we see in nginx setuo that its start from root folder("/") and then moves to our unix socket **"myapp.sock"**, we need to make sure nginx has permission to do so.
   
   </details>
   
