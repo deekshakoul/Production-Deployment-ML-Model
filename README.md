@@ -49,9 +49,22 @@ Flask server is a development server i.e meant to test locally only. We need to 
 
 #### Connecting app with Gunicorn ####
 So far, we have completed our local deployment with Flask. Now will connect/map our flask application and gunicorn server via `connector.py`. <br/>
-``` gunicorn --bind :5000 connector:app ``` <br/>
+``` gunicorn --bind :5000 connector:app ```  <br/>
 This will run gunicorn server by providing connector file and application module name. Application still runs on same url but now the client request gets handled by the app server - Gunicorn.
 
 #### Setting up our web server - nginx ####
 To install nginx, follow the steps mentioned in  [Installing nginx on Ubuntu.](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04)
 You can install it outside environment as well.
+<br/>
+Before running nginx, we need to setup gunincorn such that it can be started by systemd. This is requirement of nginx. 
+[ ] Edit service file - sudo vi /etc/systemd/system/myapp.service
+  * Working directory - the root folder path
+  * Environment - conda env path, can be found via command `conda env list`
+  * ExecStart - <path of gunciron in your env>  --workers 3  --bind unix:myapp.sock -m 007 connector:app
+      * Notice how this gunicorn cmd is different from earlier. Now, we bind it to a unix socket i.e myapp.sock
+[ ] To start the gunicorn service, we run following commands - 
+  ```
+          sudo systemctl start myapp
+          sudo systemctl enable myapp
+          sudo systemctl status myapp
+  ```
