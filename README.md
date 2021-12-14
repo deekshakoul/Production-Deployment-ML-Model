@@ -85,9 +85,9 @@ You can install it outside environment as well.
       Application will be running at http://localhost:5000
 
 <details>
-           <summary> Error and process logs </summary>
-  * sudo less /var/log/nginx/error.log: checks the Nginx error logs.
-  * sudo less /var/log/nginx/access.log: checks the Nginx access logs.
-  * sudo journalctl -u nginx: checks the Nginx process logs.
-  * sudo journalctl -u myapp: checks your Flask app’s Gunicorn logs.
+ <summary> Error and process logs </summary>
+ * sudo less /var/log/nginx/error.log: checks the Nginx error logs.
+ * sudo less /var/log/nginx/access.log: checks the Nginx access logs.
+ * sudo journalctl -u nginx: checks the Nginx process logs.
+ * sudo journalctl -u myapp: checks your Flask app’s Gunicorn logs.
 </details>
