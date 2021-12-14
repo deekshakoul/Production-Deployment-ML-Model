@@ -21,7 +21,6 @@ Now in any environment, all we need to do is -
 
 ### Getting Started ###
 
-<details>
 #### Creating conda environment ####
 ```
 conda create -n myapp
@@ -32,7 +31,6 @@ conda install flask
 install lib as per requirements
 '
 ```
-</details>
 
 #### Gunicorn installation ####
 `pip install gunicorn` <br/>
