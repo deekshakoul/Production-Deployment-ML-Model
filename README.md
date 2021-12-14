@@ -128,5 +128,6 @@ You can install it outside environment as well.
 
  * [Part 1:Deploy Flask App+Anaconda+Gunicorn+Nginx on Ubuntu](https://medium.com/analytics-vidhya/part-1-deploy-flask-app-anaconda-gunicorn-nginx-on-ubuntu-4524014451b)
  * [Part 2](https://medium.com/analytics-vidhya/part-2-deploy-flask-app-anaconda-gunicorn-nginx-on-ubuntu-b12fc4199c59) 
+ * For Flask deployment and UI - [flask - deployment](https://github.com/krishnaik06/Deployment-flask)
     
 </details>  
