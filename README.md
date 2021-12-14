@@ -81,8 +81,8 @@ This will run gunicorn server by providing connector file and application module
 Before running nginx, we need to setup gunincorn such that it can be started by systemd. This is requirement of nginx. 
 - [ ] Edit service file - sudo vi /etc/systemd/system/myapp.service
   * Working directory - the root folder path
-* Environment - conda env path, can be found via command `conda env list`
-* ExecStart - \<path of gunciron in your env\>  --workers 3  --bind unix:myapp.sock -m 007 connector:app
+  * Environment - conda env path, can be found via command `conda env list`
+  * ExecStart - \<path of gunciron in your env\>  --workers 3  --bind unix:myapp.sock -m 007 connector:app
   <br/>  Notice how this gunicorn cmd is different from earlier. Now, we bind it to a unix socket i.e myapp.sock
 - [ ]  To start the gunicorn service, we run following commands - 
   ```
