@@ -19,8 +19,9 @@ Now in any environment, all we need to do is -
  We need to deploy a simple UI which intakes a word from user and then provides list of words similar to that word, based on our trained word2vec model.
  ![This is what we want](others/UI.png)
 
-###Getting Started ###
+### Getting Started ###
 
+<details>
 #### Creating conda environment ####
 ```
 conda create -n myapp
@@ -31,6 +32,7 @@ conda install flask
 install lib as per requirements
 '
 ```
+</details>
 
 #### Gunicorn installation ####
 `pip install gunicorn` <br/>
@@ -56,10 +58,11 @@ This will run gunicorn server by providing connector file and application module
 
 <br/>
 Before running nginx, we need to setup gunincorn such that it can be started by systemd. This is requirement of nginx. 
-- [ ]  Edit service file - sudo vi /etc/systemd/system/myapp.service
-  * Working directory - the root folder path
-  * Environment - conda env path, can be found via command `conda env list`
-  * ExecStart - \<path of gunciron in your env\>  --workers 3  --bind unix:myapp.sock -m 007 connector:app
+
+- [ ] Edit service file - sudo vi /etc/systemd/system/myapp.service
+* Working directory - the root folder path
+* Environment - conda env path, can be found via command `conda env list`
+* ExecStart - \<path of gunciron in your env\>  --workers 3  --bind unix:myapp.sock -m 007 connector:app
   <br/>  Notice how this gunicorn cmd is different from earlier. Now, we bind it to a unix socket i.e myapp.sock
 - [ ]  To start the gunicorn service, we run following commands - 
   ```
