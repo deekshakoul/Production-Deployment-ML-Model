@@ -8,14 +8,14 @@ A tutorial on deploying any ML model with Flask + Gunicorn + Nginx.
 Given a text corpus, we run word2vec model on it. After tuning our parameters, we save our word2vec model as -
               `model.save("models/w2v.model")`
 Now in any environment, all we need to do is - 
-    <br/>
     
-```
+    
+```python
     model = w2v.load('models/w2v_bi_v10.model')
     word = "doctor"
     prediction = model.wv.most_similar(word)
 ```
-    <br/>
+    
  The prediction will contain list of top words with similarity score that are similar to word "doctor".
  
  ### GOAL ###
@@ -25,7 +25,7 @@ Now in any environment, all we need to do is -
 ### Getting Started ###
 
 #### Creating conda environment ####
-```
+```python
 conda create -n myapp
 conda activate myapp
 conda install flask
