@@ -73,14 +73,14 @@ Flask server is a development server i.e meant to test locally only. We need to 
 <details>
   
 So far, we have completed our local deployment with Flask. Now will connect/map our flask application and gunicorn server via `connector.py`. <br/>
-``` gunicorn --bind :5000 connector:app ```  <br/>
+``` 
+gunicorn --bind :5000 connector:app 
+```  
 This will run gunicorn server by providing connector file and application module name. Application still runs on same url but now the client request gets handled by the app server - Gunicorn.
 
-<br/>
 Before running nginx, we need to setup gunincorn such that it can be started by systemd. This is requirement of nginx. 
-
 - [ ] Edit service file - sudo vi /etc/systemd/system/myapp.service
-* Working directory - the root folder path
+  * Working directory - the root folder path
 * Environment - conda env path, can be found via command `conda env list`
 * ExecStart - \<path of gunciron in your env\>  --workers 3  --bind unix:myapp.sock -m 007 connector:app
   <br/>  Notice how this gunicorn cmd is different from earlier. Now, we bind it to a unix socket i.e myapp.sock
