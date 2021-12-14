@@ -18,13 +18,15 @@ Now in any environment, all we need to do is -
     
  The prediction will contain list of top words with similarity score that are similar to word "doctor".
  
- ### GOAL ###
+ ### Goal ###
  We need to deploy a simple UI which intakes a word from user and then provides list of words similar to that word, based on our trained word2vec model.
  ![This is what we want](others/UI.png)
 
 ### Getting Started ###
 
-#### Creating conda environment ####
+### Creating conda environment
+<details>
+  
 ```python
 conda create -n myapp
 conda activate myapp
@@ -38,11 +40,11 @@ conda install gensim
 * To update python packages - 
  <br/> `sudo apt install python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools` 
 * To upgrade from a older gensim version in env - 
-```
+```unix
 conda remove --force gensim
 pip install  --upgrade gensim --pre
 ```
-
+<//details> 
 ### Gunicorn installation ###
 <details><summary> Run cmd </summary>
 
