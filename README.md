@@ -49,7 +49,9 @@ Flask server is a development server i.e meant to test locally only. We need to 
 * Gunicorn : Application server to handle client request
 * Nginx: Web server
 
-#### Connecting app with Gunicorn ####
+### Connecting app with Gunicorn ###
+<details>
+  
 So far, we have completed our local deployment with Flask. Now will connect/map our flask application and gunicorn server via `connector.py`. <br/>
 ``` gunicorn --bind :5000 connector:app ```  <br/>
 This will run gunicorn server by providing connector file and application module name. Application still runs on same url but now the client request gets handled by the app server - Gunicorn.
@@ -68,6 +70,7 @@ Before running nginx, we need to setup gunincorn such that it can be started by 
           sudo systemctl enable myapp
           sudo systemctl status myapp
   ```
+  </details>
   
 ### Setting up our web server - nginx ###
 <details> <summary> Steps to follow - </summary>
