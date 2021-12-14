@@ -69,8 +69,9 @@ Before running nginx, we need to setup gunincorn such that it can be started by 
           sudo systemctl status myapp
   ```
   
-#### Setting up our web server - nginx ####
-
+### Setting up our web server - nginx ###
+<details> <summary> Steps to follow - </summary>
+  
 - [ ] To install nginx, follow the steps mentioned in [Installing nginx on Ubuntu.](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04)
 You can install it outside environment as well.
 - [ ] sudo usermod ubuntu -g www-data
@@ -83,8 +84,14 @@ You can install it outside environment as well.
 - [ ] Start the application -
        <br/> ```sudo systemctl start nginx```<br/>
       Application will be running at http://localhost:5000
+</details>
+
 #### Additional functions
 <details> <summary> Error and process logs </summary>
   
-  * HELLO
+ * sudo less /var/log/nginx/error.log: checks the Nginx error logs.
+ * sudo less /var/log/nginx/access.log: checks the Nginx access logs.
+ * sudo journalctl -u nginx: checks the Nginx process logs.
+ * sudo journalctl -u myapp: checks your Flask app’s Gunicorn logs.
+  
 </details>
