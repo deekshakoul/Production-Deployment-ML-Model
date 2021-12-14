@@ -32,11 +32,16 @@ install lib as per requirements
 '
 ```
 
-#### Gunicorn installation ####
+### Gunicorn installation ###
+<details><summary> Run cmd </summary>
+
 `pip install gunicorn` <br/>
 Note make sure to run this command while inside env as it can cause compatibility issues.
+</details>
+  
+### Creating our application - app.py ###
+<details>
 
-#### Creating our application - app.py ####
 Flask API will receive user input in form of `request.form["word"]`  through UI or API calls, computes the similar words to input based on our saved model and returns it.
 In `app.run(debug=True,host='0.0.0.0')` we can change the host as well as port number at which it gets deployed. Follow [this](https://www.codewithharry.com/blogpost/flask-cheatsheet) cheat-sheet for flask commands.
 > python app.py
@@ -48,6 +53,7 @@ Flask server is a development server i.e meant to test locally only. We need to 
 * Flask:python framework for web application
 * Gunicorn : Application server to handle client request
 * Nginx: Web server
+</details>
 
 ### Connecting app with Gunicorn ###
 <details>
