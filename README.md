@@ -60,7 +60,7 @@ Before running nginx, we need to setup gunincorn such that it can be started by 
 [ ] Edit service file - sudo vi /etc/systemd/system/myapp.service
   * Working directory - the root folder path
   * Environment - conda env path, can be found via command `conda env list`
-  * ExecStart - <path of gunciron in your env>  --workers 3  --bind unix:myapp.sock -m 007 connector:app
+  * ExecStart - \<path of gunciron in your env\>  --workers 3  --bind unix:myapp.sock -m 007 connector:app
       * Notice how this gunicorn cmd is different from earlier. Now, we bind it to a unix socket i.e myapp.sock
 [ ] To start the gunicorn service, we run following commands - 
   ```
