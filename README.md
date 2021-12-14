@@ -34,7 +34,7 @@ install lib as per requirements
 `pip install gunicorn` <br/>
 Note make sure to run this command while inside env as it can cause compatibility issues.
 
-####Creating our application - app.py ####
+#### Creating our application - app.py ####
 Flask API will receive user input in form of `request.form["word"]`  through UI or API calls, computes the similar words to input based on our saved model and returns it.
 In `app.run(debug=True,host='0.0.0.0')` we can change the host as well as port number at which it gets deployed. Follow [this](https://www.codewithharry.com/blogpost/flask-cheatsheet) cheat-sheet for flask commands.
 > python app.py
@@ -48,6 +48,10 @@ Flask server is a development server i.e meant to test locally only. We need to 
 * Nginx: Web server
 
 #### Connecting app with Gunicorn ####
-So far, we have completed our local deployment with Flask. Now will connect/map our flask application and gunicorn server via `connector.py`.
-``` gunicorn --bind 0.0.0.0:5000 connector:app ```
+So far, we have completed our local deployment with Flask. Now will connect/map our flask application and gunicorn server via `connector.py`. <br/>
+``` gunicorn --bind :5000 connector:app ``` <br/>
 This will run gunicorn server by providing connector file and application module name. Application still runs on same url but now the client request gets handled by the app server - Gunicorn.
+
+#### Setting up our web server - nginx ####
+To install nginx, follow the steps mentioned in  [Installing nginx on Ubuntu.](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04)
+You can install it outside environment as well.
