@@ -23,7 +23,7 @@ Now in any environment, all we need to do is -
  ![This is what we want](others/UI.png)
 
 ## Getting Started ##
-<hr />
+
 ### Creating conda environment
 <details>
   
