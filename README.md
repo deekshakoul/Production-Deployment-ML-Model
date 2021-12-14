@@ -44,7 +44,8 @@ conda install gensim
 conda remove --force gensim
 pip install  --upgrade gensim --pre
 ```
-<//details> 
+</details>
+
 ### Gunicorn installation ###
 <details><summary> Run cmd </summary>
 
