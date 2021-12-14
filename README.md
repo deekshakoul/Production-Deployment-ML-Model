@@ -9,11 +9,12 @@ Given a text corpus, we run word2vec model on it. After tuning our parameters, w
               `model.save("models/w2v.model")`
 Now in any environment, all we need to do is - 
     <br/>
-    ```
+    
+```
     model = w2v.load('models/w2v_bi_v10.model')
     word = "doctor"
     prediction = model.wv.most_similar(word)
-    ```
+```
     <br/>
  The prediction will contain list of top words with similarity score that are similar to word "doctor".
  
