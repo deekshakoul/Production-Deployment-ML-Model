@@ -83,7 +83,8 @@ You can install it outside environment as well.
 - [ ] Start the application -
        <br/> ```sudo systemctl start nginx```<br/>
       Application will be running at http://localhost:5000
-
+#### Additional functions
 <details> <summary> Error and process logs </summary>
+  
   * HELLO
 </details>
