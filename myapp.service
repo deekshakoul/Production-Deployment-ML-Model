@@ -1,0 +1,11 @@
+[Unit]
+Description=Gunicorn instance to serve My flask app
+After=network.target
+[Service]
+User=deeksha
+Group=sudo
+WorkingDirectory= /home/deeksha/my_code
+Environment="PATH=/anaconda/envs/myapp1/bin"
+ExecStart=/anaconda/envs/myapp/bin/gunicorn --workers 3 --bind unix:myapp1.sock -m 007 connector:app
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,9 @@
+server {
+ listen 80;
+ server_name <pass the server ip here> ;  
+
+location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/deeksha/my_code/myapp.sock;
+ }
+}
