@@ -19,6 +19,8 @@ Now in any environment, all we need to do is -
  We need to deploy a simple UI which intakes a word from user and then provides list of words similar to that word, based on our trained word2vec model.
  ![This is what we want](others/UI.png)
 
+###Getting Started ###
+
 #### Creating conda environment ####
 ```
 conda create -n myapp
@@ -58,7 +60,7 @@ Before running nginx, we need to setup gunincorn such that it can be started by 
   * Working directory - the root folder path
   * Environment - conda env path, can be found via command `conda env list`
   * ExecStart - \<path of gunciron in your env\>  --workers 3  --bind unix:myapp.sock -m 007 connector:app
-      *  Notice how this gunicorn cmd is different from earlier. Now, we bind it to a unix socket i.e myapp.sock
+  <br/>  Notice how this gunicorn cmd is different from earlier. Now, we bind it to a unix socket i.e myapp.sock
 - [ ]  To start the gunicorn service, we run following commands - 
   ```
           sudo systemctl start myapp
@@ -74,11 +76,19 @@ You can install it outside environment as well.
    - [ ] the user here is ubuntu and group is www-data. Change accordingly.
 - [ ] Create nginx configuration file - `sudo vi /etc/nginx/sites-available/myapp`
 - [ ] Create a symlink between /etc/nginx/sites-available and /etc/nginx/sites-enabled <br/>
-   ```sudo ln -s /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled```
+   ```sudo ln -s /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled``` <br/>
   To check if the linkage is successful, run `ls-ln`. If there is already symlink and you need to ovewrite then instead of passing `-s` , pass `-sf` as argument.
 - [ ] `sudo nginx -t` Checks any syntax errors in configuration file: nginx.conf
-- [ ] Start teh application -
-        ```sudo systemctl start nginx```
+- [ ] Start the application -
+       <br/> ```sudo systemctl start nginx```<br/>
       Application will be running at http://localhost:5000
 
-    
+<details>
+           <summary> Error and process logs </summary>
+           <p>
+             * sudo less /var/log/nginx/error.log: checks the Nginx error logs.
+             * sudo less /var/log/nginx/access.log: checks the Nginx access logs.
+             * sudo journalctl -u nginx: checks the Nginx process logs.
+             * sudo journalctl -u myapp: checks your Flask app’s Gunicorn logs.
+           </p>
+</details>
