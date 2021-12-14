@@ -111,6 +111,24 @@ You can install it outside environment as well.
 - [ ] Start the application -
        <br/> ```sudo systemctl start nginx```<br/>
       Application will be running at http://localhost:5000
+- [ ] A brief explanation of myapp that starts the nginx service
+ ```
+server {
+ listen 80;
+ server_name <pass the server ip here> ;  
+
+location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/deeksha/my_code/myapp.sock;
+ }
+}
+  
+```
+*  listen 80: port at which our app will run
+* server_name: machine/server ip adress, therfore our app will run at http:server_ip:80
+* proxy_pass: unix socket to transfer request that nginx listen at port 80.
+* This file instructs Nginx to listen on port 80 and transfer the request to our api that we created using gunicorn+flask i.e myapp.sock.
+  
 </details>
 
 #### Additional functions
