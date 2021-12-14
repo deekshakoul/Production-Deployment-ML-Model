@@ -29,10 +29,18 @@ Now in any environment, all we need to do is -
 conda create -n myapp
 conda activate myapp
 conda install flask
+conda install gensim 
 
-'
-install lib as per requirements
-'
+# install lib as per requirements
+
+```
+* As we are using gensim, make sure the version is >4.0 with latest python(3.10) 
+* To update python packages - 
+ <br/> `sudo apt install python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools` 
+* To upgrade from a older gensim version in env - 
+```
+conda remove --force gensim
+pip install  --upgrade gensim --pre
 ```
 
 ### Gunicorn installation ###
