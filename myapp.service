@@ -5,7 +5,7 @@ After=network.target
 User=deeksha
 Group=sudo
 WorkingDirectory= /home/deeksha/my_code
-Environment="PATH=/anaconda/envs/myapp1/bin"
-ExecStart=/anaconda/envs/myapp/bin/gunicorn --workers 3 --bind unix:myapp1.sock -m 007 connector:app
+Environment="PATH=/anaconda/envs/myapp/bin"
+ExecStart=/anaconda/envs/myapp/bin/gunicorn --workers 3 --bind unix:myapp.sock -m 007 connector:app
 [Install]
 WantedBy=multi-user.target
